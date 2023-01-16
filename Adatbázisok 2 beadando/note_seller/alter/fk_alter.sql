@@ -1,10 +1,10 @@
 ALTER TABLE felhasznalo ADD CONSTRAINT fk_egyetem_id
     FOREIGN KEY(egyetem_id) REFERENCES egyetemek(id);
     
-ALTER TABLE jegyzetek ADD CONSTRAINT fk_egyetem_id
+ALTER TABLE jegyzetek ADD CONSTRAINT fk_egyetem_id_j
     FOREIGN KEY(egyetem_id) REFERENCES egyetemek(id);
     
-ALTER TABLE jegyzetek ADD CONSTRAINT fk_felhasznalo_id
+ALTER TABLE jegyzetek ADD CONSTRAINT fk_felhasznalo_id_j
     FOREIGN KEY(feltolto_id) REFERENCES felhasznalo(id);
     
 ALTER TABLE vasarlasok ADD CONSTRAINT fk_felhasznalo_id

@@ -1,0 +1,57 @@
+ROMPT Installing DB...
+
+-- Install sequences
+@./alter/sequences.sql
+
+-- Install tables
+@./table/egyetemek_table.sql
+@./table/felhasznalo_table.sql
+@./table/jegyzetek_table.sql
+@./table/vasarlasok_table.sql
+@./table/error_log_table.sql
+
+-- Install types
+@./type/ty_jegyzet_statisztika.typ
+@./type/ty_jegyzet_statisztika_l.tps
+
+-- Packes
+@./package/pkg_exception.spc
+@./package/pkg_error_log.pck
+
+@./package/egyetem_pck.pck
+@./package/felhasznalo_pck.pck
+@./package/jegyzet_pck.pck
+@./package/vasarlas_pck.pck
+
+@./package/statisztikak_pck.pck
+
+-- Views
+@./view/jegyzet_bevetel_vw.sql
+@./view/vasarlasok_vw.sql
+
+-- Triggers
+@./trigger/egyetem_trg.trg
+@./trigger/felhasznalo_trg.trg
+@./trigger/jegyzet_trg.trg
+@./trigger/vasarlas_trg.trg
+
+-- Recompile schema
+BEGIN
+  dbms_utility.compile_schema(schema => 'NOTE_SALER');
+END;
+/
+
+-- FK
+@./alter/fk_alter.sql
+
+--Alter
+@./alter/alter.sql
+
+-- Tabla data
+@./data/egyetem_data.sql
+@./data/felhasznalo_data.sql
+@./data/jegyzet_data.sql
+@./data/vasarlas_data.sql
+
+
+PROMPT Done.
